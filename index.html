@@ -188,7 +188,7 @@
         fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`, {
             method: "POST",
             headers: {
-                "Authorization": `token ${GITHUB_TOKEN}`,
+                "Authorization": `${GITHUB_TOKEN}`,
                 "Accept": "application/vnd.github.v3+json",
                 "Content-Type": "application/json"
             },
