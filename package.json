@@ -1,0 +1,9 @@
+{
+  "name": "github-issue-creator",
+  "version": "1.0.0",
+  "description": "Creates GitHub issues from form submissions",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
