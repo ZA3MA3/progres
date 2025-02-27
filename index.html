@@ -238,7 +238,8 @@ padding-left: 4px;
         
         const GITHUB_OWNER = "ZA3MA3"; 
         const GITHUB_REPO = "progres"; 
-        const GITHUB_TOKEN = "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"; 
+       const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+
         
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault(); 
