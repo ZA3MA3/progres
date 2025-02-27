@@ -258,6 +258,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
   .then(response => response.json())
   .then(data => {
     console.log('Success:', data);
+      window.location.href = "https://progres.mesrs.dz/webfve/login.xhtml";
     
   })
   .catch(error => {
