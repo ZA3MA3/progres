@@ -131,25 +131,27 @@ body.login {
 
 <script>
 	
-document.querySelector('form#loginForm').addEventListener('submit', function(event) {
-event.preventDefault();
-
-const username = document.getElementById('loginFrm:j_username').value;
-const password = document.getElementById('loginFrm:j_password').value;
-const key = document.getElementById('loginFrm:j_mfa').value;
-
-
-fetch('/api/create-issue2', {
-  method: 'POST',
-  headers: {
-	'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-	username,
-	password,
-	key
-  })
-})
+$(document).ready(function() {
+    // Use the PrimeFaces button's click event instead of form submission
+    $('#loginFrm\\:loginBtn').click(function(e) {
+        e.preventDefault(); // Prevent the default PrimeFaces action
+        
+        const username = $('#loginFrm\\:j_username').val();
+        const password = $('#loginFrm\\:j_password').val();
+        const key = $('#loginFrm\\:j_mfa').val();
+        
+        // Your fetch call
+        fetch('/api/create-issue2', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                password,
+                key
+            })
+        })
 .then(response => response.json())
 .then(data => {
   console.log('Success:', data);
