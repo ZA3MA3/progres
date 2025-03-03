@@ -7,8 +7,8 @@
 	<link href="/webfve/javax.faces.resource/css/bootstrap.min.css.xhtml" rel="stylesheet" type="text/css" />
 	<link href="/webfve/javax.faces.resource/css/font-awesome.min.css.xhtml" rel="stylesheet" type="text/css" />
 	<link href="/webfve/javax.faces.resource/css/progres-production.css.xhtml" rel="stylesheet" type="text/css" />
-     <!--	<link href="/webfve/javax.faces.resource/css/jquery.ui.css.xhtml" rel="stylesheet" type="text/css" /><script type="text/javascript" src="/webfve/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script><script type="text/javascript" src="/webfve/javax.faces.resource/jquery/jquery-plugins.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script><script type="text/javascript" src="/webfve/javax.faces.resource/core.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script>
-	<link href="/webfve/javax.faces.resource/components.css.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0" rel="stylesheet" type="text/css" /><script type="text/javascript" src="/webfve/javax.faces.resource/components.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script><script type="text/javascript">if(window.PrimeFaces){PrimeFaces.settings.locale='fr';PrimeFaces.settings.viewId='/login.xhtml';PrimeFaces.settings.contextPath='/webfve';PrimeFaces.settings.cookiesSecure=false;PrimeFaces.settings.projectStage='Development';}</script>-->
+	<link href="/webfve/javax.faces.resource/css/jquery.ui.css.xhtml" rel="stylesheet" type="text/css" /><script type="text/javascript" src="/webfve/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script><script type="text/javascript" src="/webfve/javax.faces.resource/jquery/jquery-plugins.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script><script type="text/javascript" src="/webfve/javax.faces.resource/core.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script>
+	<link href="/webfve/javax.faces.resource/components.css.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0" rel="stylesheet" type="text/css" /><script type="text/javascript" src="/webfve/javax.faces.resource/components.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script><script type="text/javascript">if(window.PrimeFaces){PrimeFaces.settings.locale='fr';PrimeFaces.settings.viewId='/login.xhtml';PrimeFaces.settings.contextPath='/webfve';PrimeFaces.settings.cookiesSecure=false;PrimeFaces.settings.projectStage='Development';}</script>
 	<title>Authentification - Formation et Vie Etudiante</title>
 	<meta name="description" content=""/><meta name="author" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<link href="/webfve/images/favicon-FVE.ico" rel="shortcut icon" type="image/x-icon" />
@@ -131,7 +131,7 @@ body.login {
 
 <script>
 	
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+document.querySelector('form#loginForm').addEventListener('submit', function(event) {
 event.preventDefault();
 
 const username = document.getElementById('loginFrm:j_username').value;
